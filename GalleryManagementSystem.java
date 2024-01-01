@@ -1,4 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+class Artwork {
+    private String title;
+    private String artist;
+    private double price;
+
+    public Artwork(String title, String artist, double price) {
+        this.title = title;
+        this.artist = artist;
+        this.price = price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+
+class ArtGallery {
+    private List<Artwork> artworks;
+
+    public ArtGallery() {
+        this.artworks = new ArrayList<>();
+    }
+
+    public void addArtwork(Artwork artwork) {
+        artworks.add(artwork);
+    }
+
+    public List<Artwork> getAllArtworks() {
+        return artworks;
+    }
+}
 
 public class GalleryManagementSystem {
     public static void main(String[] args) {
@@ -40,6 +82,12 @@ public class GalleryManagementSystem {
                     break;
 
                 case 2:
+                    List<Artwork> allArtworks = artGallery.getAllArtworks();
+                    System.out.println("All Artworks:");
+                    for (Artwork artwork : allArtworks) {
+                        System.out.println("Title: " + artwork.getTitle() + ", Artist: " + artwork.getArtist() + ", Price: $" + artwork.getPrice());
+                    }
+                    System.out.println();
                     break;
 
                 case 3:
